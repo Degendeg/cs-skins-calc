@@ -21,7 +21,12 @@ body {
 }
 
 #root {
-  margin: 200px;
+  margin: 100px;
+}
+
+.main {
+  margin: 50px;
+  padding: 100px 50px 100px 50px !important; 
 }
 
 .result {

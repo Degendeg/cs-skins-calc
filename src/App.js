@@ -9,7 +9,7 @@ class App extends React.Component {
         super();
         this.state = {
             tags: [], 
-            pattern: /^\d+$/,
+            pattern: /^[0-9.,]+$/,
             props: {
                 placeholder: 'Add value'
             }
@@ -26,7 +26,7 @@ class App extends React.Component {
     }
     calculateAmount() {
         let amount = this.state.tags;
-        amount = amount.map((a) => { return +a; }).reduce((a, b) => a + b, 0);
+        amount = amount.map((a) => { return +a.replace(/,/g, '.'); }).reduce((a, b) => a + b, 0);
         const percentage = document.getElementById('percentage').value;
         const result = document.getElementsByClassName('result')[0];
         const calculation = amount * (parseFloat(percentage) / 100.0);
@@ -40,7 +40,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-              <div className="jumbotron">
+              <div className="jumbotron main">
                 <div className="form-group">
                   <label htmlFor="amount">Initial value:</label>
                 <TagsInput 
