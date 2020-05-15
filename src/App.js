@@ -8,11 +8,12 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            tags: [], 
+            tags: [],
             pattern: /^[0-9.,]+$/,
-            props: {
+            inputProps: {
                 placeholder: 'Add value'
-            }
+            },
+			currency: ' SEK'
         };
         this.calculateAmount = this.calculateAmount.bind(this);
         this.handleReject = this.handleReject.bind(this);
@@ -31,7 +32,7 @@ class App extends React.Component {
         const result = document.getElementsByClassName('result')[0];
         const calculation = amount * (parseFloat(percentage) / 100.0);
         if (!isNaN(calculation)) {
-          result.innerHTML = calculation.toFixed(2);   
+          result.innerHTML = calculation.toFixed(2) + this.state.currency;
         }
         else {
           result.innerHTML = "";
@@ -41,12 +42,13 @@ class App extends React.Component {
         return (
             <div className="App">
               <div className="jumbotron main">
+				<h4 className="ribbon">Currency: {this.state.currency}</h4>
                 <div className="form-group">
                   <label htmlFor="amount">Initial value:</label>
                 <TagsInput 
-                    inputProps={this.state.props} 
+                    inputProps={this.state.inputProps}
                     validationRegex={this.state.pattern} 
-                    value={this.state.tags} 
+                    value={this.state.tags}
                     onChange={this.handleChange}
                     onValidationReject={this.handleReject}
                 />

@@ -29,15 +29,48 @@ body {
   padding: 100px 50px 100px 50px !important; 
 }
 
+.form-control {
+  border-radius: 0 !important;
+}
+
+.ribbon {
+  margin: 0;
+  padding: 0;
+  background: #B54B9F;
+  color: #FFFFFF;
+  padding: 0.5em 0;
+  position: absolute;
+  top:0;
+  right:0;
+  transform: translateX(30%) translateY(0%) rotate(45deg);
+  transform-origin: top left;
+}
+.ribbon:before,
+.ribbon:after {
+  content: '';
+  position: absolute;
+  top:0;
+  margin: 0 -1px; /* tweak */
+  width: 100%;
+  height: 100%;
+  background: #B54B9F;
+}
+.ribbon:before {
+  right:100%;
+}
+
+.ribbon:after {
+  left:100%;
+}
+
 .result {
   display: flex;
   align-items: center;
   background: #FFFFFF;
-  border: 1px solid #EEEEEE;
-  border-radius: 5px;
+  border: 1px solid #ced4da;
   box-shadow: 0 4px 12px rgba(#000, 0.12);
   margin: 0 0 20px 0;
-  padding: 20px 40px;
+  padding: 20px 10px;
   font-family: 'Open Sans', sans-serif;
   color: #999999;
   font-size: 22px;
