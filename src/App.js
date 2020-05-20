@@ -13,7 +13,7 @@ class App extends React.Component {
             inputProps: {
                 placeholder: 'Add value'
             },
-			currency: ' SEK'
+	    currency: ' SEK'
         };
         this.calculateAmount = this.calculateAmount.bind(this);
         this.handleReject = this.handleReject.bind(this);
